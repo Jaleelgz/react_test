@@ -3,7 +3,7 @@ import ReactLoading from "react-loading";
 import { AiOutlineUser } from "react-icons/ai";
 import { CgShoppingBag } from "react-icons/cg";
 import { BiSearch } from "react-icons/bi";
-import * as restServices from "../Utils/reastUtils";
+import * as restServices from "../Utils/restUtils";
 import "./homeStyles.scss";
 import StoreItem from "./Store/StoreItem";
 
