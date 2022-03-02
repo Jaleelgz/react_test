@@ -3,16 +3,15 @@ import ReactLoading from "react-loading";
 import { AiOutlineUser } from "react-icons/ai";
 import { CgShoppingBag } from "react-icons/cg";
 import { BiSearch } from "react-icons/bi";
-import { FaShuttleVan } from "react-icons/fa";
-import { IoCall } from "react-icons/io5";
-import { BsFillDoorOpenFill, BsFillHandbagFill } from "react-icons/bs";
 import * as restServices from "../Utils/reastUtils";
 import "./homeStyles.scss";
+import StoreItem from "./Store/StoreItem";
 
 function Home() {
   const [loading, setLoading] = useState(true);
   const [strores, setStores] = useState([]);
   const [filteredStrores, setFilteredStores] = useState([]);
+  const [location, setLocation] = useState("South Australia");
   const [search, setSearch] = useState("");
   const getStoreData = async () => {
     setLoading(true);
@@ -71,21 +70,56 @@ function Home() {
       <div className="defPadding innerBody">
         <div className="locationParentContainer">
           <div className="innerLocationContainer">
-            <div className="locationItemContainer">
+            <button
+              className={
+                location === "New South Wales"
+                  ? "locationItemContainer locationItemContainer_border"
+                  : "locationItemContainer"
+              }
+              onClick={() => setLocation("New South Wales")}
+            >
               <p className="locationTxt">New South Wales</p>
-            </div>
-            <div className="locationItemContainer">
+            </button>
+            <button
+              className={
+                location === "Queensland"
+                  ? "locationItemContainer locationItemContainer_border"
+                  : "locationItemContainer"
+              }
+              onClick={() => setLocation("Queensland")}
+            >
               <p className="locationTxt">Queensland</p>
-            </div>
-            <div className="locationItemContainer locationItemContainer_border">
+            </button>
+            <button
+              className={
+                location === "South Australia"
+                  ? "locationItemContainer locationItemContainer_border"
+                  : "locationItemContainer"
+              }
+              onClick={() => setLocation("South Australia")}
+            >
               <p className="locationTxt">South Australia</p>
-            </div>
-            <div className="locationItemContainer">
+            </button>
+            <button
+              className={
+                location === "Tasmania"
+                  ? "locationItemContainer locationItemContainer_border"
+                  : "locationItemContainer"
+              }
+              onClick={() => setLocation("Tasmania")}
+            >
               <p className="locationTxt">Tasmania</p>
-            </div>
-            <div className="locationItemContainer">
+            </button>
+            <button
+              className={
+                location === "Victoria"
+                  ? "locationItemContainer locationItemContainer_border"
+                  : "locationItemContainer"
+              }
+              onClick={() => setLocation("Victoria")}
+            >
               <p className="locationTxt">Victoria</p>
-            </div>
+            </button>
           </div>
         </div>
 
@@ -121,41 +155,7 @@ function Home() {
               </div>
             )}
             {filteredStrores.map((store, index) => (
-              <div key={index} className="storeParent">
-                <div className="detailsContainer">
-                  <p className="storeName">{store.name}</p>
-                  <p className="storeAddress">{store.address}</p>
-                  <div className="openContainer">
-                    <BsFillDoorOpenFill size={16} color="#808957" />
-                    <p className="timeTxt">{store.hours.replace(",", " |")}</p>
-                  </div>
-                  <div className="btnContainer">
-                    <button className="storeBtn">
-                      <BsFillHandbagFill size={16} color="#808957" />
-                      <p className="btnText">BANJO'S MENU</p>
-                    </button>
-                    <button className="storeBtn">
-                      <FaShuttleVan size={16} color="#808957" />
-                      <p className="btnText">PLATERS MENU</p>
-                    </button>
-                  </div>
-                </div>
-                <div className="imgContainer">
-                  <div className="imgDiv">
-                    <img
-                      src={store.image}
-                      alt="store_pic"
-                      className="storeImage"
-                    />
-                  </div>
-                  <a href={"tel:" + store.phone}>
-                    <div className="callBtn">
-                      <IoCall size={18} color="#af4224" />
-                      <p>Call</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
+              <StoreItem key={store.name + index} store={store} />
             ))}
           </div>
         </div>

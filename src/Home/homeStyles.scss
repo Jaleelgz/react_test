@@ -91,7 +91,7 @@
         width: 100%;
         margin-top: 20%;
         .locationItemContainer_border {
-          border-right: 5px solid #d7a946;
+          border-right: 5px solid #d7a946 !important;
           color: #d7a946;
         }
         .locationItemContainer {
@@ -99,6 +99,9 @@
           height: 40px;
           display: flex;
           align-items: center;
+          background-color: #fff;
+          border: none;
+          outline: none;
           cursor: pointer;
           .locationTxt {
             font-size: 18px;
