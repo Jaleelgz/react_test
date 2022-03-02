@@ -42,6 +42,7 @@
         align-items: center;
         justify-content: center;
         gap: 5px;
+        cursor: pointer;
         .cartIcon {
           &::before {
             content: "12";
@@ -71,7 +72,7 @@
     display: flex;
     align-items: center;
     p {
-      margin-left: 80px;
+      margin-left: 70px;
     }
     span {
       font-weight: 600;
@@ -98,6 +99,7 @@
           height: 40px;
           display: flex;
           align-items: center;
+          cursor: pointer;
           .locationTxt {
             font-size: 18px;
           }
@@ -202,6 +204,7 @@
                 border: 1px solid #d9d9d9;
                 border-radius: 2px;
                 background-color: #fff;
+                cursor: pointer;
                 p {
                   color: #808957;
                   font-weight: 600;
